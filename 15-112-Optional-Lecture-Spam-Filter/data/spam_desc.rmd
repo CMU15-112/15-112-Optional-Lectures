@@ -1,0 +1,24 @@
+---
+output: html_document
+---
+
+
+```{r,echo=FALSE}
+setwd("/Users/edwdryer/Desktop/15-112-Optional-Lecture-Spam-Filter/data")
+data(spam)
+```
+
+From the help page: 
+
+A data frame with 4601 observations and 58 variables.
+
+The first 48 variables contain the frequency of the variable name (e.g., business) in the e-mail. If the variable name starts with num (e.g., num650) the it indicates the frequency of the corresponding number (e.g., 650). The variables 49-54 indicate the frequency of the characters ‘;’, ‘(’, ‘[’, ‘!’, ‘\$’, and ‘\#’. The variables 55-57 contain the average, longest and total run-length of capital letters. Variable 58 indicates the type of the mail and is either "nonspam" or "spam", i.e. unsolicited commercial e-mail.
+
+
+
+
+```{r,echo=FALSE}
+kable(head(spam))
+kable(head(spam[which(spam$type != "spam"),]))
+write.csv(spam,'../spam.csv')
+```
